@@ -66,15 +66,6 @@ function find_openpgp(text, obj) {
 
 var doc = null;
 
-/**
- * call routine to open the openpgp.html page for handling a message
- * @return null
- */
-function hide_pgp_alert() {
-	if (document.getElementById("gpg4browsers_alert") != null) {
-		document.getElementById("gpg4browsers_alert").parentNode.removeChild(document.getElementById("gpg4browsers_alert"));
-	}
-}
 function decryptMessage(obj) {
   obj = $(obj);
   var body = obj.html();
@@ -83,8 +74,6 @@ function decryptMessage(obj) {
 
   result = result.replace(regex, "");
   var pgp_block = find_openpgp(result, obj);
-
-
   if (pgp_block) {
     chrome.runtime.sendMessage({action:'decrypt', message: pgp_block
     }, function(response) {
@@ -98,9 +87,14 @@ function decryptMessage(obj) {
  * background process timer to constantly check the displayed page for pgp messages
  */
 window.setInterval(function() {
+  $('._1nc6 ._5w1r ._5yl5').each(function(i, obj) {
+		if (/-----BEGIN PGP MESSAGE-----/.test($(obj).html()) && /-----END PGP MESSAGE-----/.test($(obj).html())) {
+      $(obj).html('Encrypted message');
+    }
+  });
   $('._1nc7 ._5w1r ._5yl5').each(function(i, obj) {
     decryptMessage(obj);
-   });
+  });
 }, 500);
 
 var enabled = {};

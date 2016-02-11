@@ -2,10 +2,11 @@ $(function() {
 
 var privKey;
 chrome.storage.local.get('privkey', function(k) {
+  console.log(k);
   if (k) {
     privKey = k.privkey;
   } 
-  if (!k.priv) {
+  if (!k.privkey) {
     chrome.tabs.create({url: "options.html"});
   }
 });
