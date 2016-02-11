@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>GPG4Browsers - PGP Message Options</title>
+    <link href="http://d2v52k3cl9vedd.cloudfront.net/basscss/7.0.4/basscss.min.css" rel="stylesheet">
+
+	</head>
+<script type="text/javascript" src="jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="openpgp.js"></script>
+<script type="text/javascript" src="options.js"></script>
+</script>
+<style>
+.container {
+  width:660px;
+}
+.key {
+  height:250px;
+  line-height:1rem;
+  background: #e9eaec;
+}
+.field {
+}
+</style>
+</head>
+<body>
+</body>
+<div class="container">
+<div>You should generate a new key and not use any existing keys since this extension is for entertainment purposes only!</div>
+<div>
+<button id="generate" class="btn btn-primary">Generate Key Pair</button>
+</div>
+<label>Public Key</label>
+<pre id="pub" class="key block col-12 field"></pre>
+<label>Private Key</label>
+<pre id="priv" class="key block col-12 field"></pre>
+
+</div>
+</html>
