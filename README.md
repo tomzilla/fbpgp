@@ -11,4 +11,4 @@ https://github.com/maxisme/crypter
 
 https://github.com/openpgpjs/openpgpjs
 
-ianpurton.com/online-pgp/
+http://ianpurton.com/online-pgp/
