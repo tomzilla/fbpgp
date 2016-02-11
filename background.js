@@ -1,17 +1,5 @@
 $(function() {
 
-openpgp.init();
-function rfn(result) {
-	if (result == -2)
-		util.print_warning("unable to decrypt message: no private key available");
-	else if (result == -1)
-		util.print_error("No valid passphrase supplied");
-	else if (result == -3)
-		util.print_error("unable to decrypt message: error during decryption");
-	else {
-    console.log(result);
-	}		
-}
 var privKey;
 chrome.storage.local.get('privkey', function(k) {
   if (k) {
